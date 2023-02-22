@@ -22,9 +22,10 @@ class Car < Vehicle
   end
 
   def initialize
-    @fuel = fuel 
-    @make = make
-    @model = model
+    @speed = 0
+    @direction = 'north'
+    @make = "honda"
+    @model = "civic"
   end
 end
 
@@ -34,6 +35,7 @@ class Bike < Vehicle
   end
 
   def initialize
+    super
     @type = type
     @weight = weight
     @color = color
