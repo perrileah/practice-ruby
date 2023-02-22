@@ -57,9 +57,28 @@ end
   grocery2 = Grocery.new("broccoli", 2.00, "online-only")
   grocery3 = Grocery.new("celery", 3.00, "instore")
 
+# items represented as a class with shortcuts
 
+  class Grocery
+
+    attr_reader :type, :cost, :availability
+    attr_writer :availability
+
+    def initialize(type, cost, availability)
+      @type = type
+      @cost = cost
+      @availability = availability
+    end
+
+  end
+
+  grocery1 = Grocery.new("carrot", 1.00, "in-store")
+  grocery2 = Grocery.new("broccoli", 2.00, "online-only")
+  grocery3 = Grocery.new("celery", 3.00, "in-store")
+
+  p grocery1
+  grocery2.availability = "in-store"
+  p grocery2.availability
+
+  grocery1.cost = 4.00
   p grocery1.cost
-  grocery1.availability = "online_only"
-  p grocery1.availability
-
-  p grocery2.print_info
