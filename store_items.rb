@@ -82,3 +82,30 @@ end
 
   grocery1.cost = 4.00
   p grocery1.cost
+
+  # items represented as a class with more shortcuts
+
+  class Grocery 
+
+    attr_reader :type, :color, :cost, :availability
+    attr_writer :availability
+
+    def initialize(input_options)
+      @type = input_options[:type]
+      @color = input_options[:color]
+      @cost = input_options[:cost]
+      @availability = input_options[:availability]
+    end
+
+    def print_info
+      puts "The #{color} #{type} costs #{cost} and is available #{availability}."
+    end
+  end
+
+  grocery1 = Grocery.new(type: "carrot", cost: 1.00, availability: "in-store", color: "orange")
+  grocery2 = Grocery.new(type: "broccoli", cost: 2.00, availability: "online-only", color: "green")
+  grocery3 = Grocery.new(type: "celery", cost: 3.00, availability: "in-store", color: "green")
+
+  grocery1.print_info
+  grocery2.print_info
+  grocery3.print_info
