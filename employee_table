@@ -1,6 +1,8 @@
 class Employee
 
-  attr_accessor :id, :first_name, :last_name, :salary, :active
+  attr_reader :id, :first_name, :last_name, :salary
+  attr_writer :active
+
 
   def initialize(input_options)
     @id = input_options[:id]
@@ -25,7 +27,7 @@ while true
 
 puts "Enter a letter between: C, R, U, D, Q."
 
-response = gets.chomp
+response = gets.chomp.upcase
 
 if response == "C"
 
@@ -58,10 +60,38 @@ p employees[id - 1]
 
 
 elsif response == "U"
-  id == gets.chomp
+  puts "Employee id"
+  id = gets.chomp.to_i
+
+  p employees[id - 1]
+
+  puts "Update active status"
+
+  new_status = gets.chomp
+
+  if new_status == "true"
+    new_status = true 
+  elsif new_status == "false"
+    new_status = false
+  end
+
+  employees[id - 1].active = new_status
+
 
 elsif response == "D"
-  id == gets.chomp
+  puts "Employee id"
+  id = gets.chomp.to_i
+
+  puts "Delete employee?"
+
+  answer = gets.chomp
+
+  if answer == "yes"
+    employees.delete_at(id - 1)
+  elsif answer == "no"
+    puts "Oops!"
+  end
+
 
 elsif response == "Q"
   puts "Now quitting program."
